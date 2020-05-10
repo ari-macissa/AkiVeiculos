@@ -1,0 +1,35 @@
+@model IEnumerable<AkiVeiculos.Models.Marca>
+
+@{
+    ViewData["Title"] = "Marcas";
+}
+
+<h1>Marcas Cadastradas</h1>
+
+<p>
+    <a asp-action="Cadastrar">Cadastrar nova marca</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Nome)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nome)
+            </td>
+            <td>
+                @Html.ActionLink("Editar", "Editar", new {  id=item.Id  }) |
+                @Html.ActionLink("Detalhes", "Detalhes", new {  id=item.Id  }) |
+                @Html.ActionLink("Excluir", "Excluir", new {  id=item.Id  })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

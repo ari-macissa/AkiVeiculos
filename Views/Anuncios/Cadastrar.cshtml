@@ -1,0 +1,79 @@
+@model AkiVeiculos.Models.AnuncioFormViewModel
+
+@{
+    ViewData["Title"] = "Cadastrar Anúncio";
+}
+
+<h1>Cadastrar</h1>
+
+<h4>Anuncio</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Cadastrar">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Anuncio.Modelo.MarcaId" class="control-label">Marca:</label>
+                <select asp-for="Anuncio.Modelo.MarcaId" asp-items="@(new SelectList(Model.Marcas,"Id","Nome"))" class="form-control"></select>
+                <span asp-validation-for="Anuncio.Modelo.Marca.Nome" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Anuncio.ModeloId" class="control-label">Modelo:</label>
+                <select asp-for="Anuncio.ModeloId" asp-items="@(new SelectList(Model.Modelos,"Id","Nome"))" class="form-control"></select>
+                <span asp-validation-for="Anuncio.ModeloId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Anuncio.Cor" class="control-label"></label>
+                <input asp-for="Anuncio.Cor" class="form-control" />
+                <span asp-validation-for="Anuncio.Cor" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Anuncio.DataVenda" class="control-label"></label>
+                <input asp-for="Anuncio.DataVenda" class="form-control" />
+                <span asp-validation-for="Anuncio.DataVenda" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Anuncio.ValorCompra" class="control-label"></label>
+                <input asp-for="Anuncio.ValorCompra" class="form-control" />
+                <span asp-validation-for="Anuncio.ValorCompra" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Anuncio.ValorVenda" class="control-label"></label>
+                <input asp-for="Anuncio.ValorVenda" class="form-control" />
+                <span asp-validation-for="Anuncio.ValorVenda" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Salvar" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+            <script type="text/javascript">
+            $('#Anuncio_Modelo_MarcaId').change(function () {
+                
+                var marca = $("#Anuncio_Modelo_MarcaId").val();
+                var modelosSelect = $('#Anuncio_ModeloId');
+                if (marca != null && marca != '') {
+                                    modelosSelect.empty();
+                    $.getJSON('https://localhost:5001/Api/Modelos/'+marca, function (modelos) {
+                        if (modelos != null && !jQuery.isEmptyObject(modelos))
+                        {
+                            $.each(modelos, function (index, m) {
+                                modelosSelect.append($("<option value='" + m.id + "'>" + m.nome + "</option>")
+                            );
+                            });
+                        };
+                    });
+                }
+             
+            });
+    </script>    
+
+}

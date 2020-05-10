@@ -1,0 +1,15 @@
+﻿@model AkiVeiculos.Models.ErrorViewModel
+@{
+    ViewData["Title"] = "Erro";
+}
+
+<h1 class="text-danger">@ViewData["Title"]</h1>
+<h2 class="text-danger">@Model.Message</h2>
+
+@if (Model.ShowRequestId)
+{
+    <p>
+        <strong>Request ID:</strong> <code>@Model.RequestId</code>
+    </p>
+}
+

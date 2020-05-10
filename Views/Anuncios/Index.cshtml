@@ -1,0 +1,99 @@
+@model IEnumerable<AkiVeiculos.Models.Anuncio>
+@{
+    ViewData["Title"] = "Anúncios";
+}
+
+
+<h1>Anúncios cadastrados</h1>
+
+<h4>Forneça um intervalo</h4>
+
+<nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+        <form class="navbar-form navbar-left" role="search">
+            <div class="form-group">
+                <div class="form-group">
+                    <label for="minData">Data inicial:</label>
+                    <input type="date" class="form-control" name="minData" value=@ViewData["minData"] />
+                </div>
+                <div class="form-group">
+                    <label for="maxData">Data final:</label>
+                    <input type="date" class="form-control" name="maxData" value=@ViewData["maxData"] />
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary">Filtrar</button>
+        </form>
+    </div>
+</nav>
+
+
+
+
+<p>
+    <a asp-action="Cadastrar">Cadastrar novo anúncio</a>
+</p>
+
+<div id="conteudo">
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.DataVenda)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Modelo.Nome)
+            </th>
+                        <th>
+                @Html.DisplayNameFor(model => model.Lucro)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.DataVenda)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Modelo.Nome)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Lucro)
+            </td>
+            <td>
+                @Html.ActionLink("Editar", "Editar", new {  id=item.Id }) |
+                @Html.ActionLink("Detalhes", "Detalhes", new { id=item.Id }) |
+                @Html.ActionLink("Excluir", "Excluir", new {  id=item.Id })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+</div>
+
+<div id="editor">
+</div>
+
+<button id="btGerarPDF">gerar PDF</button>
+    
+@section Scripts {
+    <script>
+        var doc = new jsPDF();
+var specialElementHandlers = {
+    '#editor': function (element, renderer) {
+        return true;
+    }
+};
+
+$('#btGerarPDF').click(function () {
+    doc.fromHTML($('#conteudo').html(), 15, 15, {
+        'width': 170,
+            'elementHandlers': specialElementHandlers
+    });
+    doc.save('Anuncios_AkiVeiculos.pdf');
+});
+    </script>
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
+

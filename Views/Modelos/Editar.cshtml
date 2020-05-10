@@ -1,0 +1,55 @@
+@model AkiVeiculos.Models.ModeloFormViewModel
+
+@{
+    ViewData["Title"] = "Editar Modelo";
+}
+
+<h1>Editar</h1>
+
+<h4>Modelo</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Editar">
+            <input type="hidden" asp-for="Modelo.Id" />
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Modelo.MarcaId" class="control-label">Marca:</label>
+                <select asp-for="Modelo.MarcaId" asp-items="@(new SelectList(Model.Marcas,"Id","Nome"))" class="form-control"></select>
+                <span asp-validation-for="Modelo.MarcaId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Modelo.Nome" class="control-label"></label>
+                <input asp-for="Modelo.Nome" class="form-control" />
+                <span asp-validation-for="Modelo.Nome" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Modelo.Ano" class="control-label"></label>
+                <input asp-for="Modelo.Ano" class="form-control" />
+                <span asp-validation-for="Modelo.Ano" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Modelo.Combustivel" class="control-label"></label>
+                <div>
+                @foreach (var item in Enum.GetValues(typeof(AkiVeiculos.Models.Enums.TipoCombustivel)))
+                {
+                <label for="@item" class="control-label">@item</label>
+                <input type="radio" asp-for="Modelo.Combustivel" id="@item" value="@item" class="form-control" />
+                }
+                                <span asp-validation-for="Modelo.Combustivel" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Salvar" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
