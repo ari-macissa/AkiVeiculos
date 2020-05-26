@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\projetos\\AkiVeiculos\\AkiVeiculos.csproj": {}
+    "C:\\projetos\\akiveiculos\\AkiVeiculos.csproj": {}
   },
   "projects": {
-    "C:\\projetos\\AkiVeiculos\\AkiVeiculos.csproj": {
+    "C:\\projetos\\akiveiculos\\AkiVeiculos.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\projetos\\AkiVeiculos\\AkiVeiculos.csproj",
+        "projectUniqueName": "C:\\projetos\\akiveiculos\\AkiVeiculos.csproj",
         "projectName": "AkiVeiculos",
-        "projectPath": "C:\\projetos\\AkiVeiculos\\AkiVeiculos.csproj",
+        "projectPath": "C:\\projetos\\akiveiculos\\AkiVeiculos.csproj",
         "packagesPath": "C:\\Users\\udr\\.nuget\\packages\\",
-        "outputPath": "C:\\projetos\\AkiVeiculos\\obj\\",
+        "outputPath": "C:\\projetos\\akiveiculos\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -41,6 +41,14 @@
       "frameworks": {
         "netcoreapp3.1": {
           "dependencies": {
+            "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[3.1.4, )"
+            },
+            "Microsoft.AspNetCore.Identity.UI": {
+              "target": "Package",
+              "version": "[3.1.1, )"
+            },
             "Microsoft.AspNetCore.Session": {
               "target": "Package",
               "version": "[2.2.0, )"
@@ -53,7 +61,11 @@
             },
             "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
               "target": "Package",
-              "version": "[3.1.2, )"
+              "version": "[3.1.3, )"
+            },
+            "Microsoft.VisualStudio.Web.CodeGeneration.Tools": {
+              "target": "Package",
+              "version": "[2.0.4, )"
             },
             "Pomelo.EntityFrameworkCore.MySql": {
               "target": "Package",

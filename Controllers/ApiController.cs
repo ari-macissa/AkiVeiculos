@@ -31,7 +31,7 @@ namespace AkiVeiculos.Controllers
             return Json(await _anuncio.BuscaPorIdAsync(id));
         }
 
-                [HttpGet]
+        [HttpGet]
         public async Task<JsonResult> Modelos(int id)
         {
             return Json(await _modelo.BuscaTodosAsync(id));

@@ -3,6 +3,9 @@ using System.Diagnostics;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.Extensions.Logging;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -12,21 +15,20 @@ using AkiVeiculos.Models;
 
 namespace AkiVeiculos.Controllers
 {
+    [Authorize]
     public class AnunciosController : Controller
     {
         private readonly AnuncioService _anuncio;
         private readonly ModeloService _modelo;
         private readonly MarcaService _marca;
-        private readonly UsuarioFilterService _usuario;
 
 
 
-        public AnunciosController(AnuncioService anuncio, ModeloService modelo, MarcaService marca, UsuarioFilterService usuario)
+        public AnunciosController(AnuncioService anuncio, ModeloService modelo, MarcaService marca)
         {
             _anuncio = anuncio;
             _modelo = modelo;
             _marca = marca;
-            _usuario = usuario;
         }
 
         public async Task<IActionResult> Index(DateTime? minData, DateTime? maxData)
@@ -65,7 +67,6 @@ namespace AkiVeiculos.Controllers
             return View(obj);
         }
 
-        [ServiceFilter(typeof(UsuarioFilterService))]
         public async Task<IActionResult> Cadastrar()
         {
 
@@ -80,7 +81,6 @@ namespace AkiVeiculos.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        [ServiceFilter(typeof(UsuarioFilterService))]
         public async Task<IActionResult> Cadastrar(Anuncio anuncio)
         {
 
@@ -88,7 +88,6 @@ namespace AkiVeiculos.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-        [ServiceFilter(typeof(UsuarioFilterService))]
         public async Task<IActionResult> Excluir(int? id)
         {
 
@@ -108,7 +107,6 @@ namespace AkiVeiculos.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        [ServiceFilter(typeof(UsuarioFilterService))]
         public async Task<IActionResult> Excluir(int id)
         {
 
@@ -123,7 +121,6 @@ namespace AkiVeiculos.Controllers
             }
         }
 
-        [ServiceFilter(typeof(UsuarioFilterService))]
         public async Task<IActionResult> Editar(int? id)
         {
 
@@ -147,7 +144,6 @@ namespace AkiVeiculos.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        [ServiceFilter(typeof(UsuarioFilterService))]
         public async Task<IActionResult> Editar(int id, Anuncio anuncio)
         {
 

@@ -6,12 +6,16 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.Extensions.Logging;
 using AkiVeiculos.Services;
 using AkiVeiculos.Services.Exceptions;
 using AkiVeiculos.Models;
 
 namespace AkiVeiculos.Controllers
 {
+    [Authorize]
     public class ModelosController : Controller
     {
         private readonly ModeloService _modelo;
@@ -44,7 +48,6 @@ namespace AkiVeiculos.Controllers
             return View(obj);
         }
 
-        [ServiceFilter(typeof(UsuarioFilterService))]
         public async Task<IActionResult> Cadastrar()
         {
             var marcas = await _marca.BuscaTodasAsync();
@@ -56,14 +59,12 @@ namespace AkiVeiculos.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        [ServiceFilter(typeof(UsuarioFilterService))]
         public async Task<IActionResult> Cadastrar(Modelo modelo)
         {
             await _modelo.CriarAsync(modelo);
             return RedirectToAction(nameof(Index));
         }
 
-        [ServiceFilter(typeof(UsuarioFilterService))]
         public async Task<IActionResult> Excluir(int? id)
         {
             if (id == null)
@@ -82,7 +83,6 @@ namespace AkiVeiculos.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        [ServiceFilter(typeof(UsuarioFilterService))]
         public async Task<IActionResult> Excluir(int id)
         {
             try
@@ -96,7 +96,6 @@ namespace AkiVeiculos.Controllers
             }
         }
 
-        [ServiceFilter(typeof(UsuarioFilterService))]
         public async Task<IActionResult> Editar(int? id)
         {
 
@@ -119,7 +118,6 @@ namespace AkiVeiculos.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        [ServiceFilter(typeof(UsuarioFilterService))]
         public async Task<IActionResult> Editar(int id, Modelo modelo)
         {
             if (id != modelo.Id)

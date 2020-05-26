@@ -20551,18 +20551,33 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "c:\\projetos\\AkiVeiculos\\Areas\\Identity\\Pages\\Account\\Login.cshtml",
+      "TargetPath": "Areas\\Identity\\Pages\\Account\\Login.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "c:\\projetos\\AkiVeiculos\\Views\\Anuncios\\Cadastrar.cshtml",
       "TargetPath": "Views\\Anuncios\\Cadastrar.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "c:\\projetos\\AkiVeiculos\\Views\\Usuarios\\Login.cshtml",
-      "TargetPath": "Views\\Usuarios\\Login.cshtml",
+      "FilePath": "c:\\projetos\\AkiVeiculos\\Areas\\Identity\\Pages\\Account\\Register.cshtml",
+      "TargetPath": "Areas\\Identity\\Pages\\Account\\Register.cshtml",
       "FileKind": "mvc"
     },
     {
       "FilePath": "c:\\projetos\\AkiVeiculos\\Views\\Modelos\\Detalhes.cshtml",
       "TargetPath": "Views\\Modelos\\Detalhes.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\projetos\\AkiVeiculos\\Areas\\Identity\\Pages\\_ValidationScriptsPartial.cshtml",
+      "TargetPath": "Areas\\Identity\\Pages\\_ValidationScriptsPartial.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\projetos\\AkiVeiculos\\Areas\\Identity\\Pages\\_ViewStart.cshtml",
+      "TargetPath": "Areas\\Identity\\Pages\\_ViewStart.cshtml",
       "FileKind": "mvc"
     },
     {
@@ -20586,6 +20601,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "c:\\projetos\\AkiVeiculos\\Areas\\Identity\\Pages\\Account\\RegisterConfirmation.cshtml",
+      "TargetPath": "Areas\\Identity\\Pages\\Account\\RegisterConfirmation.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "c:\\projetos\\AkiVeiculos\\Views\\_ViewStart.cshtml",
       "TargetPath": "Views\\_ViewStart.cshtml",
       "FileKind": "mvc"
@@ -20596,13 +20616,33 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "c:\\projetos\\AkiVeiculos\\Areas\\Identity\\Pages\\_ViewImports.cshtml",
+      "TargetPath": "Areas\\Identity\\Pages\\_ViewImports.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "c:\\projetos\\AkiVeiculos\\Views\\Marcas\\Cadastrar.cshtml",
       "TargetPath": "Views\\Marcas\\Cadastrar.cshtml",
       "FileKind": "mvc"
     },
     {
+      "FilePath": "c:\\projetos\\AkiVeiculos\\Areas\\Identity\\Pages\\Account\\_ViewImports.cshtml",
+      "TargetPath": "Areas\\Identity\\Pages\\Account\\_ViewImports.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\projetos\\AkiVeiculos\\Areas\\Identity\\Pages\\Account\\Logout.cshtml",
+      "TargetPath": "Areas\\Identity\\Pages\\Account\\Logout.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "c:\\projetos\\AkiVeiculos\\Views\\Marcas\\Editar.cshtml",
       "TargetPath": "Views\\Marcas\\Editar.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\projetos\\AkiVeiculos\\Views\\Shared\\_LoginPartial.cshtml",
+      "TargetPath": "Views\\Shared\\_LoginPartial.cshtml",
       "FileKind": "mvc"
     },
     {

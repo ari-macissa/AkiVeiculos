@@ -40,7 +40,6 @@ namespace AkiVeiculos.Data
             Anuncio anuncio3 = new Anuncio(3, new DateTime(2020, 02, 01), 30000, 50000, "azul", modelo3);
             Anuncio anuncio4 = new Anuncio(4, new DateTime(2020, 03, 10), 80000, 110000, "prata", modelo4);
 
-            Usuario usuario1 = new Usuario(1,"admin","123456");
 
             _context.Marca.AddRange(marca1, marca2, marca3, marca4);
 
@@ -48,7 +47,6 @@ namespace AkiVeiculos.Data
 
             _context.Anuncio.AddRange(anuncio1, anuncio2, anuncio3, anuncio4);
 
-_context.Usuario.AddRange(usuario1);
 
             _context.SaveChanges();
         }

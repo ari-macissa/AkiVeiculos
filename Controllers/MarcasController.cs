@@ -3,6 +3,9 @@ using System.Diagnostics;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.Extensions.Logging;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -12,6 +15,7 @@ using AkiVeiculos.Models;
 
 namespace AkiVeiculos.Controllers
 {
+    [Authorize]
     public class MarcasController : Controller
     {
         private readonly MarcaService _marca;
@@ -42,7 +46,6 @@ namespace AkiVeiculos.Controllers
             return View(obj);
         }
 
-        [ServiceFilter(typeof(UsuarioFilterService))]
         public IActionResult Cadastrar()
         {
             return View();
@@ -50,14 +53,12 @@ namespace AkiVeiculos.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        [ServiceFilter(typeof(UsuarioFilterService))]
         public async Task<IActionResult> Cadastrar(Marca marca)
         {
             await _marca.CriarAsync(marca);
             return RedirectToAction(nameof(Index));
         }
 
-        [ServiceFilter(typeof(UsuarioFilterService))]
         public async Task<IActionResult> Excluir(int? id)
         {
             if (id == null)
@@ -76,7 +77,6 @@ namespace AkiVeiculos.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        [ServiceFilter(typeof(UsuarioFilterService))]
         public async Task<IActionResult> Excluir(int id)
         {
 
@@ -91,7 +91,6 @@ namespace AkiVeiculos.Controllers
             }
         }
 
-        [ServiceFilter(typeof(UsuarioFilterService))]
         public async Task<IActionResult> Editar(int? id)
         {
             if (id == null)
@@ -110,7 +109,6 @@ namespace AkiVeiculos.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        [ServiceFilter(typeof(UsuarioFilterService))]
         public async Task<IActionResult> Editar(int id, Marca marca)
         {
             if (id != marca.Id)
