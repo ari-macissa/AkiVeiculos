@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\projetos\\akiveiculos\\AkiVeiculos.csproj": {}
+    "C:\\projetos\\Akiveiculos\\AkiVeiculos.csproj": {}
   },
   "projects": {
-    "C:\\projetos\\akiveiculos\\AkiVeiculos.csproj": {
+    "C:\\projetos\\Akiveiculos\\AkiVeiculos.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\projetos\\akiveiculos\\AkiVeiculos.csproj",
+        "projectUniqueName": "C:\\projetos\\Akiveiculos\\AkiVeiculos.csproj",
         "projectName": "AkiVeiculos",
-        "projectPath": "C:\\projetos\\akiveiculos\\AkiVeiculos.csproj",
+        "projectPath": "C:\\projetos\\Akiveiculos\\AkiVeiculos.csproj",
         "packagesPath": "C:\\Users\\udr\\.nuget\\packages\\",
-        "outputPath": "C:\\projetos\\akiveiculos\\obj\\",
+        "outputPath": "C:\\projetos\\Akiveiculos\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
