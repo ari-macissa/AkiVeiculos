@@ -3,6 +3,7 @@ using System.Diagnostics;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -12,6 +13,7 @@ using AkiVeiculos.Models;
 
 namespace AkiVeiculos.Controllers
 {
+    [Authorize]
     public class ApiController : Controller
     {
         private readonly AnuncioService _anuncio;
@@ -25,7 +27,7 @@ namespace AkiVeiculos.Controllers
             _marca = marca;
         }
 
-        [HttpGet]
+        [HttpGet("api/anuncio/{id}")]
         public async Task<JsonResult> Anuncio(int id)
         {
             return Json(await _anuncio.BuscaPorIdAsync(id));
