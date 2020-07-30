@@ -28,6 +28,7 @@ namespace AkiVeiculos.Controllers
         }
 
         [HttpGet("api/anuncio/{id}")]
+        [AllowAnonymous]
         public async Task<JsonResult> Anuncio(int id)
         {
             return Json(await _anuncio.BuscaPorIdAsync(id));
